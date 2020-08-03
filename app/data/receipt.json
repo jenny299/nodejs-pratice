@@ -1,0 +1,24 @@
+{
+    "success": true,
+    "code": 200,
+    "data": {
+      "version": 2,
+      "txnAppType": "120",
+      "txnTimestamp": 1529329980000,
+      "txnId": "TF200409241896695",
+      "txnAmount": 7777,
+      "txnCurrency": "VND",
+      "txnFrom": {
+        "bankName": "",
+        "accNo": "9997041000822"
+      },
+      "txnTo": {
+        "accName": "CONG TANG TON NU NGUYEN THI QUYNH HOA THI LAN HUONG LE",
+        "bankName": "Plus",
+        "accNo": "9997041000825"
+      },
+      "txnDesc": "Payment Request : Plus ",
+      "canShare": false,
+      "receiptTile": "Transaction receipt"
+    }
+  }

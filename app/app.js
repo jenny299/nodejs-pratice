@@ -3,8 +3,6 @@ const https = require("https");
 const express = require("express");
 let app = express();
 
-const GLOBAL_CONSTANTS = require("./config/global.constant");
-const SIMULATION_FILES = GLOBAL_CONSTANTS.SIMULATION_DATA_FILES;
 const port = 5000;
 const ACCEPTED_HEADERS = [
 	"content-type",
@@ -15,11 +13,6 @@ const ACCEPTED_HEADERS = [
 ];
 const acceptedHeaders =
 	"Origin, X-Requested-With," + ACCEPTED_HEADERS.join(",");
-
-// const ApiHelper = require('./helpers/api.helper');
-// const UtilHelper = require('./helpers/util.helper');
-// const api = new ApiHelper();
-// const util = new UtilHelper();
 
 const mongoose = require("mongoose");
 const Task = require("./data/tasks.model");
@@ -48,22 +41,11 @@ app.use(function (req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// app.use(express.json());
-// app.post('/login', function(req, res){
-//     api.makeRequest(req)
-//     .then(response => {
-//         res.json(response)
-//     })
-//     .catch(error => {
-//         res.send(error)
-//     })
-// });
-// app.post('/user/account/transaction/receipt', (req, res) => {
-//    util.readFile(`data/${SIMULATION_FILES.RECEIPT}`);
-// });
+// let routes =  require('./routes'); //importing route
+// routes(app); //register the route
 
-let routes = require("./routes/tasks.routes"); //importing route
-routes(app); //register the route
+// mount the router on the app
+app.use('/api', require('./routes'));
 
 https
 	.createServer(
